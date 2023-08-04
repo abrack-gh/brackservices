@@ -7,8 +7,6 @@ spring:
     base-url: http://localhost:9411
   sleuth:
     sampler:
-      refresh:
-        enabled: true
       probability: 1.0
   datasource:
     url: jdbc:postgresql://localhost:5432/fraud
@@ -21,16 +19,6 @@ spring:
       hibernate:
       dialect: org.hibernate.dialect.PostgreSQLDialect
     show-sql: true
-  kafka:
-    bootstrap-servers:
-      - http://localhost:9092
-    template:
-      default-topic: notificationTopic
-    producer:
-      retries: 0
-      key-serializer: org.springframework.kafka.support.serializer.JsonSerializer
-      value-serializer: org.apache.kafka.common.serialization.StringSerializer
-      properties: spring.json.type.mapping.event:com.ab.fraud.event.FraudCheckEvent
 eureka:
     client:
       service-url:
